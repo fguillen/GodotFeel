@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc5o4k20rp7ac"]
+
+[ext_resource type="Script" path="res://tool_box/effects/scale_elastic/scale_elastic_effect.gd" id="1_ec6kb"]
+
+[sub_resource type="Curve" id="Curve_af08i"]
+resource_local_to_scene = true
+max_value = 1.2
+_data = [Vector2(0, 0), 0.0, 5.98055, 0, 0, Vector2(0.38, 1.2), -1.7978, -1.7978, 0, 0, Vector2(0.52137, 0.907786), 0.668702, 0.668702, 0, 0, Vector2(0.741644, 1.14962), -1.39961, -1.39961, 0, 0, Vector2(1, 1), 0.0291636, 0.0, 0, 0]
+point_count = 5
+
+[node name="ScaleElasticEffect" type="Node"]
+script = ExtResource("1_ec6kb")
+curve = SubResource("Curve_af08i")

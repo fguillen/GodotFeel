@@ -16,4 +16,4 @@ config/icon="res://icon.svg"
 
 [gui]
 
-theme/custom_font="res://ui/LondrinaSolid-Regular.ttf"
+theme/custom_font="res://tool_box/ui/LondrinaSolid-Regular.ttf"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcamae8700581"]
+
+[ext_resource type="Material" uid="uid://ckparpojl2ojw" path="res://tool_box/elements/color_rect_with_texture/color_rect_with_texture.tres" id="1_qbapr"]
+
+[node name="ColorRectWithTexture" type="ColorRect"]
+material = ExtResource("1_qbapr")
+offset_left = -902.0
+offset_top = -786.0
+offset_right = 1980.0
+offset_bottom = 2456.0

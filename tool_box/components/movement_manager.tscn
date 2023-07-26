@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tool_box/components/movement_manager.gd" id="1_86se8"]
+
+[node name="MovementManager" type="Node" node_paths=PackedStringArray("character", "input")]
+script = ExtResource("1_86se8")
+speed = 4000
+acceleration = 30000
+decceleration = 40000
+character = NodePath("")
+input = NodePath("")

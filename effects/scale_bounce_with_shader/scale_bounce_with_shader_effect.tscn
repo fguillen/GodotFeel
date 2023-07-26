@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj4iph5poof1m"]
-
-[ext_resource type="Script" path="res://effects/scale_bounce_with_shader/scale_bounce_with_shader_effect.gd" id="1_w6w1d"]
-
-[node name="ScaleBounceEffect" type="Node"]
-script = ExtResource("1_w6w1d")

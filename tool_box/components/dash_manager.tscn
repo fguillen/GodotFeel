@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqfupbqlbpeju"]
+
+[ext_resource type="Script" path="res://tool_box/components/dash_manager.gd" id="1_5aj28"]
+
+[node name="DashManager" type="Node"]
+script = ExtResource("1_5aj28")
+dash_speed = 2500.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlus5sud1rv0v"]
+
+[ext_resource type="Script" path="res://tool_box/effects/lean_towards_direction_effect.gd" id="1_xm3dd"]
+
+[node name="OscillatorTowardsDirectionEffect" type="Node"]
+script = ExtResource("1_xm3dd")

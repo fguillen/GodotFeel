@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmu6tua0mbef0"]
+
+[ext_resource type="Script" path="res://tool_box/components/input_manager_touch.gd" id="1_8jl4m"]
+
+[node name="InputManagerTouch" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8jl4m")

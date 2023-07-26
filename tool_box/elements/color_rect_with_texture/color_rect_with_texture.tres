@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ckparpojl2ojw"]
+
+[ext_resource type="Shader" path="res://tool_box/elements/color_rect_with_texture/color_rect_with_texture.gdshader" id="1_88ucf"]
+[ext_resource type="Texture2D" path="res://assets/leaf_pattern.png" id="2_sc1jd"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_88ucf")
+shader_parameter/bg_color = Color(0.929412, 0.403922, 0.054902, 1)
+shader_parameter/pattern_color = Color(0.713835, 0.299534, 0.0140675, 1)
+shader_parameter/scale = 10.0
+shader_parameter/ratio = 1.0
+shader_parameter/direction = Vector2(0.1, 0.1)
+shader_parameter/pattern_sampler = ExtResource("2_sc1jd")
