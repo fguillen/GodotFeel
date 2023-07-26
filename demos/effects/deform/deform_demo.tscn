@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://newsoi54q2bv"]
+
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_11jvg"]
+[ext_resource type="PackedScene" uid="uid://dl28skw65bhlw" path="res://tool_box/effects/deform/deform_effect.tscn" id="2_comcc"]
+[ext_resource type="Shader" path="res://tool_box/effects/deform/deform_effect.gdshader" id="3_y4rqa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5uga"]
+resource_local_to_scene = true
+shader = ExtResource("3_y4rqa")
+shader_parameter/x_factor = 2.0
+shader_parameter/bulge = null
+
+[node name="DeformDemo" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.752941, 0.756863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+text = "Deform"
+
+[node name="ButtonPink" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+text = "Blink Pink"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(472, 257)
+texture = ExtResource("1_11jvg")
+
+[node name="Effects" type="Node2D" parent="Sprite2D"]
+
+[node name="DeformEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("target") instance=ExtResource("2_comcc")]
+target = NodePath("../..")
+shader_material = SubResource("ShaderMaterial_k5uga")
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Sprite2D/Effects/DeformEffect" method="perform"]

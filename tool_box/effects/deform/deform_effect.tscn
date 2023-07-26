@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl28skw65bhlw"]
+
+[ext_resource type="Script" path="res://tool_box/effects/deform/deform_effect.gd" id="1_10jd2"]
+[ext_resource type="Shader" path="res://tool_box/effects/deform/deform_effect.gdshader" id="2_52mn3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5b2oe"]
+resource_local_to_scene = true
+shader = ExtResource("2_52mn3")
+shader_parameter/x_factor = 2.0
+shader_parameter/bulge = null
+
+[node name="DeformEffect" type="Node"]
+script = ExtResource("1_10jd2")
+shader_material = SubResource("ShaderMaterial_5b2oe")

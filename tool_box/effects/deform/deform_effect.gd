@@ -12,7 +12,7 @@ extends Node
 @export var target: Node2D
 @export var shader_material: ShaderMaterial
 @export var bulge: float = 0.3
-@export var durantion: float = 0.3
+@export var duration: float = 0.3
 
 
 # -- 09 public variables
@@ -46,9 +46,8 @@ func perform():
 	_tween = create_tween()
 	_previous_material = target.material
 	target.material = shader_material
-#	_tween.tween_property(target, "position", Vector2(1, 2), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	_tween.tween_method(_set_shader_value, 0.0, bulge, durantion).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	_tween.tween_method(_set_shader_value, bulge, 0.0, durantion * 1.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	_tween.tween_method(_set_shader_value, 0.0, bulge, duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	_tween.tween_method(_set_shader_value, bulge, 0.0, duration * 1.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	_tween.tween_callback(_reset)
 	
 	
