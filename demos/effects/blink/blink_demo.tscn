@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccjphbuo0wwr5"]
+
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_k8670"]
+[ext_resource type="PackedScene" uid="uid://dinlfgaorw876" path="res://tool_box/effects/blink/blink_effect.tscn" id="2_sfp5b"]
+[ext_resource type="Shader" path="res://tool_box/effects/blink/blink_effect.gdshader" id="3_55747"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uiil4"]
+resource_local_to_scene = true
+shader = ExtResource("3_55747")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/percent = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyf3t"]
+resource_local_to_scene = true
+shader = ExtResource("3_55747")
+shader_parameter/color = Color(0.682353, 0, 0.686275, 1)
+shader_parameter/percent = 0.0
+
+[node name="BlinkDemo" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.752941, 0.756863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+text = "Blink"
+
+[node name="ButtonPink" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+text = "Blink Pink"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(472, 257)
+texture = ExtResource("1_k8670")
+
+[node name="Effects" type="Node2D" parent="Sprite2D"]
+
+[node name="BlinkEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("canvas_item") instance=ExtResource("2_sfp5b")]
+canvas_item = NodePath("../..")
+material = SubResource("ShaderMaterial_uiil4")
+
+[node name="BlinkEffectPink" parent="Sprite2D/Effects" node_paths=PackedStringArray("canvas_item") instance=ExtResource("2_sfp5b")]
+canvas_item = NodePath("../..")
+material = SubResource("ShaderMaterial_xyf3t")
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Sprite2D/Effects/BlinkEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/ButtonPink" to="Sprite2D/Effects/BlinkEffectPink" method="perform"]

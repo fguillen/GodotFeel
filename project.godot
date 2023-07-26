@@ -14,6 +14,14 @@ config/name="MyEffects"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/size/initial_position_type=2
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+
 [gui]
 
 theme/custom_font="res://tool_box/ui/LondrinaSolid-Regular.ttf"
