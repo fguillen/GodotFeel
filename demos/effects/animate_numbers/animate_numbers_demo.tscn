@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://ge1yyrh5k2mp"]
+
+[ext_resource type="PackedScene" uid="uid://brwv0kmvk53ku" path="res://tool_box/effects/animate_numbers/animate_number_effect.tscn" id="1_5u38x"]
+
+[node name="AnimateNumbers1Demo" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.752941, 0.756863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 2
+
+[node name="Effects" type="Node2D" parent="CanvasLayer/CenterContainer/VBoxContainer/Label"]
+
+[node name="AnimateNumberEffect" parent="CanvasLayer/CenterContainer/VBoxContainer/Label/Effects" node_paths=PackedStringArray("target") instance=ExtResource("1_5u38x")]
+target = NodePath("../..")
+
+[node name="AnimateButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+text = "Animate to 1000"
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+text = "Reset"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/AnimateButton" to="CanvasLayer/CenterContainer/VBoxContainer/Label/Effects/AnimateNumberEffect" method="perform" binds= [1000]]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/ResetButton" to="CanvasLayer/CenterContainer/VBoxContainer/Label" method="set_text" binds= ["0"]]
