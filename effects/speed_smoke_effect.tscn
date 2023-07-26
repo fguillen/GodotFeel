@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7mau6sauoypc"]
+
+[ext_resource type="Texture2D" uid="uid://dlbu2vjktin2e" path="res://assets/speed_smoke/speed_smoke_01.png" id="1_0crk5"]
+[ext_resource type="Script" path="res://effects/speed_smoke_effect.gd" id="1_3t3sw"]
+
+[sub_resource type="Curve" id="Curve_1v1jn"]
+_data = [Vector2(0.00518843, 0.142748), 0.0, 0.0, 0, 0, Vector2(0.25751, 0.994657), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="SpeedSmokeEffect" type="CPUParticles2D"]
+self_modulate = Color(0.929412, 0.403922, 0.054902, 1)
+emitting = false
+amount = 10
+lifetime = 0.8
+texture = ExtResource("1_0crk5")
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+angular_velocity_min = 80.0
+angular_velocity_max = 160.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.5
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_1v1jn")
+script = ExtResource("1_3t3sw")
+speed_threshold = 1200.0

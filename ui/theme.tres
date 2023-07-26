@@ -1,0 +1,141 @@
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://t4fnqfcts68g"]
+
+[ext_resource type="FontFile" uid="uid://cx701b32gfg0t" path="res://ui/LondrinaSolid-Regular.ttf" id="1_jckqb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wp61"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxopx"]
+texture_margin_left = 23.0
+texture_margin_top = 27.0
+texture_margin_right = 25.0
+texture_margin_bottom = 21.0
+region_rect = Rect2(-3, -3, 440, 158)
+modulate_color = Color(0.929412, 0.403922, 0.054902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ihl8"]
+texture_margin_left = 23.0
+texture_margin_top = 27.0
+texture_margin_right = 25.0
+texture_margin_bottom = 21.0
+region_rect = Rect2(-3, -3, 440, 158)
+modulate_color = Color(0.2, 0.203922, 0.203922, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyu60"]
+texture_margin_left = 23.0
+texture_margin_top = 27.0
+texture_margin_right = 25.0
+texture_margin_bottom = 21.0
+region_rect = Rect2(-3, -3, 440, 158)
+modulate_color = Color(0.682353, 0.286275, 0.0117647, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpxjy"]
+region = Rect2(14, 14, 122, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32eio"]
+region = Rect2(15, 110, 122, 76)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgoym"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qnhig"]
+texture_margin_left = 23.0
+texture_margin_top = 27.0
+texture_margin_right = 25.0
+texture_margin_bottom = 21.0
+region_rect = Rect2(-3, -3, 440, 158)
+modulate_color = Color(0.929412, 0.403922, 0.054902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brb25"]
+texture_margin_left = 23.0
+texture_margin_top = 27.0
+texture_margin_right = 25.0
+texture_margin_bottom = 21.0
+region_rect = Rect2(-3, -3, 440, 158)
+modulate_color = Color(0.682353, 0.286275, 0.0117647, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6csqo"]
+texture_margin_left = 23.0
+texture_margin_top = 27.0
+texture_margin_right = 25.0
+texture_margin_bottom = 21.0
+region_rect = Rect2(-3, -3, 440, 158)
+modulate_color = Color(0.2, 0.203922, 0.203922, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ex4e8"]
+texture_margin_left = 23.0
+texture_margin_top = 27.0
+texture_margin_right = 25.0
+texture_margin_bottom = 21.0
+region_rect = Rect2(-3, -3, 440, 158)
+modulate_color = Color(0.682353, 0.286275, 0.0117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3wrb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.929412, 0.403922, 0.054902, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osoiu"]
+bg_color = Color(0.929412, 0.403922, 0.054902, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah0qv"]
+content_margin_left = 8.0
+content_margin_top = 16.0
+content_margin_right = 8.0
+content_margin_bottom = 16.0
+bg_color = Color(0.2, 0.203922, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hi02"]
+bg_color = Color(0.929412, 0.403922, 0.054902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flsf7"]
+bg_color = Color(0.2, 0.203922, 0.203922, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 0.8, 1)
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_jckqb")
+default_font_size = 50
+Button/font_sizes/font_size = 50
+Button/styles/focus = SubResource("StyleBoxEmpty_6wp61")
+Button/styles/hover = SubResource("StyleBoxTexture_oxopx")
+Button/styles/normal = SubResource("StyleBoxTexture_3ihl8")
+Button/styles/pressed = SubResource("StyleBoxTexture_qyu60")
+CheckButton/constants/h_separation = 40
+CheckButton/icons/checked = SubResource("AtlasTexture_jpxjy")
+CheckButton/icons/unchecked = SubResource("AtlasTexture_32eio")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_bgoym")
+CheckButton/styles/hover = SubResource("StyleBoxTexture_qnhig")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxTexture_brb25")
+CheckButton/styles/normal = SubResource("StyleBoxTexture_6csqo")
+CheckButton/styles/pressed = SubResource("StyleBoxTexture_ex4e8")
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = null
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_o3wrb")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_osoiu")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ah0qv")
+Label/constants/line_spacing = 0
+Label/font_sizes/font_size = 50
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_0hi02")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_flsf7")
+ProgressBar/styles/fill = null
+TextEdit/colors/background_color = Color(1, 1, 0.901961, 1)
+TextEdit/colors/caret_color = Color(0.2, 0.203922, 0.203922, 1)
+TextEdit/colors/font_color = Color(0.2, 0.203922, 0.203922, 1)
+TextEdit/colors/font_placeholder_color = Color(0.2, 0.203922, 0.203922, 0.431373)
+TextEdit/constants/caret_width = 60

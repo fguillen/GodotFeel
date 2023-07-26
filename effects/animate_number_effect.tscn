@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brwv0kmvk53ku"]
+
+[ext_resource type="Script" path="res://effects/animate_number_effect.gd" id="1_4rgn6"]
+
+[node name="AnimateNumberEffect" type="Node"]
+script = ExtResource("1_4rgn6")

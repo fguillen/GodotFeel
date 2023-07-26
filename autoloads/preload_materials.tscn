@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvfsg8p72bh1v"]
+
+[ext_resource type="Script" path="res://autoloads/preload_materials.gd" id="1_oy7ih"]
+[ext_resource type="Material" uid="uid://coppv4857ad67" path="res://effects/blink/blink_effect_material.tres" id="2_nbov6"]
+[ext_resource type="Material" uid="uid://bs6emwyl3d4v5" path="res://effects/bounce_particles_effect_material.tres" id="3_8aa0m"]
+
+[node name="PreloadMaterials" type="Node"]
+script = ExtResource("1_oy7ih")
+materials = Array[Material]([ExtResource("2_nbov6"), ExtResource("3_8aa0m")])

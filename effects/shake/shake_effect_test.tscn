@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://5i3e3q0csrn5"]
+
+[ext_resource type="Texture2D" uid="uid://ci7lhdro3pmtj" path="res://actors/bricks/fly/fly.png" id="1_ejflx"]
+[ext_resource type="PackedScene" uid="uid://bwx0xblbbojg6" path="res://effects/shake/shake_effect.tscn" id="2_ce2oa"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o6nh7"]
+resource_local_to_scene = true
+noise_type = 0
+seed = 3
+frequency = 0.029
+fractal_octaves = 1
+fractal_lacunarity = 1.0
+
+[node name="ShakeEffectTest" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 296.0
+offset_top = 416.0
+offset_right = 662.0
+offset_bottom = 583.0
+text = "Perform"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(488, 208)
+texture = ExtResource("1_ejflx")
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="ShakeEffect" parent="Effects" node_paths=PackedStringArray("target") instance=ExtResource("2_ce2oa")]
+target = NodePath("../../Sprite2D")
+noise = SubResource("FastNoiseLite_o6nh7")
+
+[connection signal="pressed" from="Button" to="Effects/ShakeEffect" method="perform"]

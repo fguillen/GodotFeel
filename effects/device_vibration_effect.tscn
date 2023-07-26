@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b77wrtegsi335"]
+
+[ext_resource type="Script" path="res://effects/device_vibration_effect.gd" id="1_8vn2y"]
+
+[node name="DeviceVibrationEffect" type="Node"]
+script = ExtResource("1_8vn2y")
