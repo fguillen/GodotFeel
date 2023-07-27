@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctq710s2aarye"]
+
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_abu5u"]
+[ext_resource type="Script" path="res://demos/effects/lean_toward_direction/sprite_2d.gd" id="2_2346k"]
+[ext_resource type="PackedScene" uid="uid://w331wjf5af75" path="res://tool_box/effects/lean_toward_direction/lean_toward_direction_effect.tscn" id="3_4gena"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8onri"]
+
+[node name="LeanTowardDemo" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.752941, 0.756863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Lean toward direction"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8onri")
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Activate effect"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(482, 257.5)
+texture = ExtResource("1_abu5u")
+script = ExtResource("2_2346k")
+
+[node name="Effects" type="Node2D" parent="Sprite2D"]
+
+[node name="LeanTowardDirectionEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("target") instance=ExtResource("3_4gena")]
+target = NodePath("../..")
+lean_speed = 100.0
+
+[connection signal="toggled" from="CanvasLayer/CenterContainer/VBoxContainer/CheckButton" to="Sprite2D/Effects/LeanTowardDirectionEffect" method="set_process"]
+[connection signal="direction_changed" from="Sprite2D" to="Sprite2D/Effects/LeanTowardDirectionEffect" method="on_direction_changed"]

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://w331wjf5af75"]
-
-[ext_resource type="Script" path="res://tool_box/effects/lean_towards_direction_effect.gd" id="1_cw2io"]
-
-[node name="LeanTowardsDirectionEffect" type="Node"]
-script = ExtResource("1_cw2io")

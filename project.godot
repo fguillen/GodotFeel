@@ -24,4 +24,5 @@ window/stretch/mode="viewport"
 
 [gui]
 
+theme/custom="res://tool_box/ui/theme.tres"
 theme/custom_font="res://tool_box/ui/LondrinaSolid-Regular.ttf"
