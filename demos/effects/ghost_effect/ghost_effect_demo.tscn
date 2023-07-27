@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_buuwi"]
 [ext_resource type="PackedScene" uid="uid://bvvv5mp4xovsk" path="res://tool_box/effects/ghost_effect/ghost_effect.tscn" id="2_q4635"]
 
+[sub_resource type="Animation" id="Animation_lnc5r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(304, 257)]
+}
+
 [sub_resource type="Animation" id="Animation_4sht6"]
 resource_name = "move"
 loop_mode = 1
@@ -17,21 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(304, 257), Vector2(632, 257)]
-}
-
-[sub_resource type="Animation" id="Animation_lnc5r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(304, 257)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c33sb"]
@@ -71,13 +71,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
-text = "Blink"
-
-[node name="ButtonPink" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
-text = "Blink Pink"
+text = "Activate ghosts"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(304, 257)
@@ -86,9 +80,12 @@ texture = ExtResource("1_buuwi")
 [node name="Effects" type="Node2D" parent="Sprite2D"]
 
 [node name="GhostEffect" parent="Sprite2D/Effects" instance=ExtResource("2_q4635")]
+texture = ExtResource("1_buuwi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 autoplay = "move"
 libraries = {
 "": SubResource("AnimationLibrary_c33sb")
 }
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Sprite2D/Effects/GhostEffect" method="perform"]

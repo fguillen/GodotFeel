@@ -9,6 +9,7 @@ extends Node2D
 # -- 06 enums
 # -- 07 constants
 # -- 08 exported variables
+@export var texture: Texture2D
 @export var duration: float = 0.5
 @export var particles_life_time: float = 0.4
 @export var particles_per_second: float = 10
@@ -27,6 +28,7 @@ extends Node2D
 # -- 13 optional built-in virtual _enter_tree() method
 # -- 14 built-in virtual _ready method
 func _ready():
+	sprite.texture = texture
 	sprite.visible = false
 	
 # -- 15 remaining built-in virtual methods
