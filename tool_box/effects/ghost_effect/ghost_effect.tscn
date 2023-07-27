@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvvv5mp4xovsk"]
 
-[ext_resource type="Script" path="res://tool_box/effects/ghost_effect.gd" id="1_npnys"]
+[ext_resource type="Script" path="res://tool_box/effects/ghost_effect/ghost_effect.gd" id="1_npnys"]
 [ext_resource type="Texture2D" path="res://assets/coco/coco_01.png" id="2_o0t72"]
 
 [node name="GhostEffect" type="Node2D"]

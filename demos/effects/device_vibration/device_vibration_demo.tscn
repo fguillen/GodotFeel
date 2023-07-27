@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://esptv6shxj5a"]
 
-[ext_resource type="PackedScene" uid="uid://b77wrtegsi335" path="res://tool_box/effects/device_vibration_effect.tscn" id="1_h1tx2"]
+[ext_resource type="PackedScene" uid="uid://b77wrtegsi335" path="res://tool_box/effects/device_vibration/device_vibration_effect.tscn" id="1_h1tx2"]
 
 [node name="DeviceVibrationDemo" type="Node2D"]
 
