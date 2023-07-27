@@ -48,7 +48,7 @@ func _on_timer_timeout():
 		node.set_process(true)
 		node.set_physics_process(true)
 	
-	if _is_animation_player_paused:
+	if animation_player and _is_animation_player_paused:
 		animation_player.play()
 # -- 19 subclasses
 
