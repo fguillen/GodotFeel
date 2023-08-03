@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://newsoi54q2bv"]
 
-[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_11jvg"]
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/assets/fishTile_079.png" id="1_11jvg"]
 [ext_resource type="PackedScene" uid="uid://dl28skw65bhlw" path="res://tool_box/effects/deform/deform_effect.tscn" id="2_comcc"]
 [ext_resource type="Shader" path="res://tool_box/effects/deform/deform_effect.gdshader" id="3_y4rqa"]
 

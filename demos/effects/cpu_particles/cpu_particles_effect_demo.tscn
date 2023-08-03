@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dj2dv7kffsmhf"]
 
-[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_tyofe"]
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/assets/fishTile_079.png" id="1_tyofe"]
 [ext_resource type="PackedScene" uid="uid://cy1ri1s4xtpri" path="res://tool_box/effects/cpu_particles/cpu_particles_effect.tscn" id="3_w1lnj"]
-[ext_resource type="Texture2D" uid="uid://b5xuqwritp45x" path="res://assets/fishTile_123.png" id="4_wgg5d"]
+[ext_resource type="Texture2D" uid="uid://b5xuqwritp45x" path="res://demos/assets/fishTile_123.png" id="4_wgg5d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8onri"]
 

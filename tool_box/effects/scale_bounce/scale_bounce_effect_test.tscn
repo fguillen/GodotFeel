@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://gsjktw2s4jci"]
 
-[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_2u6oo"]
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/assets/fishTile_079.png" id="1_2u6oo"]
 [ext_resource type="PackedScene" uid="uid://bc5o4k20rp7ac" path="res://tool_box/effects/scale_bounce/scale_bounce_effect.tscn" id="2_booj6"]
 
 [sub_resource type="Curve" id="Curve_t11dv"]

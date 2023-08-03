@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4qb2o8nbwne"
-path="res://.godot/imported/scene_switcher_bottom_animation.png-90a68b43d8817c7fd589e02795a78fb6.ctex"
+uid="uid://dkvy1tygivlka"
+path="res://.godot/imported/fishTile_079.png-8b633f56a946280f6ddda939863bef16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tool_box/autoloads/scene_switcher/scene_switcher_bottom_animation.png"
-dest_files=["res://.godot/imported/scene_switcher_bottom_animation.png-90a68b43d8817c7fd589e02795a78fb6.ctex"]
+source_file="res://demos/assets/fishTile_079.png"
+dest_files=["res://.godot/imported/fishTile_079.png-8b633f56a946280f6ddda939863bef16.ctex"]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://c817v2wc4m8jh" path="res://tool_box/effects/sound/sound_effect.tscn" id="1_7ellv"]
 [ext_resource type="Script" path="res://demos/effects/sound/music_button.gd" id="1_7qehv"]
-[ext_resource type="AudioStream" uid="uid://daq27tvepq1gg" path="res://assets/confirmation_001.ogg" id="2_xein3"]
-[ext_resource type="AudioStream" uid="uid://dv4ohaabl30d0" path="res://assets/pluck_001.ogg" id="3_fh1ws"]
-[ext_resource type="AudioStream" uid="uid://bj0n1tfjip4hu" path="res://assets/question_001.ogg" id="4_7p3r8"]
-[ext_resource type="AudioStream" uid="uid://cg5eshk6wimpj" path="res://assets/select_006.ogg" id="5_ilo6q"]
-[ext_resource type="AudioStream" uid="uid://c20nhja6e24ck" path="res://assets/switch_001.ogg" id="6_huota"]
-[ext_resource type="AudioStream" uid="uid://dmfdx5a50qlbv" path="res://assets/vintage-elecro-pop-loop.ogg" id="8_bs1tj"]
+[ext_resource type="AudioStream" uid="uid://daq27tvepq1gg" path="res://demos/assets/confirmation_001.ogg" id="2_xein3"]
+[ext_resource type="AudioStream" uid="uid://dv4ohaabl30d0" path="res://demos/assets/pluck_001.ogg" id="3_fh1ws"]
+[ext_resource type="AudioStream" uid="uid://bj0n1tfjip4hu" path="res://demos/assets/question_001.ogg" id="4_7p3r8"]
+[ext_resource type="AudioStream" uid="uid://cg5eshk6wimpj" path="res://demos/assets/select_006.ogg" id="5_ilo6q"]
+[ext_resource type="AudioStream" uid="uid://c20nhja6e24ck" path="res://demos/assets/switch_001.ogg" id="6_huota"]
+[ext_resource type="AudioStream" uid="uid://dmfdx5a50qlbv" path="res://demos/assets/vintage-elecro-pop-loop.ogg" id="8_bs1tj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8onri"]
 
