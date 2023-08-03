@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="MyEffects"
+config/name="GodotFeel"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
