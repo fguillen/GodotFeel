@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc5o4k20rp7ac"]
 
-[ext_resource type="Script" path="res://tool_box/effects/scale_elastic/scale_elastic_effect.gd" id="1_ec6kb"]
+[ext_resource type="Script" path="res://tool_box/effects/scale_bounce/scale_bounce_effect.gd" id="1_ec6kb"]
 
 [sub_resource type="Curve" id="Curve_af08i"]
 resource_local_to_scene = true

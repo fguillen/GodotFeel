@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://gsjktw2s4jci"]
 
-[ext_resource type="Texture2D" uid="uid://ci7lhdro3pmtj" path="res://actors/bricks/fly/fly.png" id="1_bjk5r"]
-[ext_resource type="PackedScene" uid="uid://bc5o4k20rp7ac" path="res://effects/scale_elastic/scale_elastic_effect.tscn" id="2_booj6"]
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://assets/fishTile_079.png" id="1_2u6oo"]
+[ext_resource type="PackedScene" uid="uid://bc5o4k20rp7ac" path="res://tool_box/effects/scale_bounce/scale_bounce_effect.tscn" id="2_booj6"]
 
-[sub_resource type="Curve" id="Curve_1egdm"]
+[sub_resource type="Curve" id="Curve_t11dv"]
 resource_local_to_scene = true
 max_value = 1.2
 _data = [Vector2(0, 0), 0.0, 5.98055, 0, 0, Vector2(0.38, 1.2), -1.7978, -1.7978, 0, 0, Vector2(0.52137, 0.907786), 0.668702, 0.668702, 0, 0, Vector2(0.741644, 1.14962), -1.39961, -1.39961, 0, 0, Vector2(1, 1), 0.0291636, 0.0, 0, 0]
 point_count = 5
 
-[sub_resource type="Curve" id="Curve_mj8uu"]
+[sub_resource type="Curve" id="Curve_w4c15"]
 resource_local_to_scene = true
 max_value = 1.2
 _data = [Vector2(0, 0), 0.0, 5.98055, 0, 0, Vector2(0.38, 1.2), -1.7978, -1.7978, 0, 0, Vector2(0.52137, 0.907786), 0.668702, 0.668702, 0, 0, Vector2(0.741644, 1.14962), -1.39961, -1.39961, 0, 0, Vector2(1, 1), 0.0291636, 0.0, 0, 0]
@@ -26,18 +26,18 @@ text = "Perform"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(488, 208)
-texture = ExtResource("1_bjk5r")
+texture = ExtResource("1_2u6oo")
 
 [node name="Effects" type="Node2D" parent="."]
 
 [node name="ScaleElasticEffectBig" parent="Effects" node_paths=PackedStringArray("target") instance=ExtResource("2_booj6")]
 target = NodePath("../../Sprite2D")
-curve = SubResource("Curve_1egdm")
+curve = SubResource("Curve_t11dv")
 
 [node name="ScaleElasticEffectRevert" parent="Effects" node_paths=PackedStringArray("target") instance=ExtResource("2_booj6")]
 target = NodePath("../../Sprite2D")
 target_scale = Vector2(1, 1)
-curve = SubResource("Curve_mj8uu")
+curve = SubResource("Curve_w4c15")
 
 [connection signal="button_down" from="Button" to="Effects/ScaleElasticEffectBig" method="perform"]
 [connection signal="button_up" from="Button" to="Effects/ScaleElasticEffectRevert" method="perform"]
