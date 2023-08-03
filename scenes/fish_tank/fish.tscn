@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2laigg4ommg7"]
+
+[ext_resource type="Script" path="res://scenes/fish_tank/fish.gd" id="1_w7ltl"]
+[ext_resource type="FastNoiseLite" uid="uid://c136wvsbs7bxl" path="res://scenes/fish_tank/noise.tres" id="2_40wdq"]
+[ext_resource type="Texture2D" uid="uid://bhxgshbg4cim0" path="res://scenes/fish_tank/fish_01.tres" id="2_ifurv"]
+[ext_resource type="Texture2D" uid="uid://cx7eafp71budw" path="res://scenes/fish_tank/fish_02.tres" id="3_w0atg"]
+[ext_resource type="Texture2D" uid="uid://c7crdte8c4dmw" path="res://scenes/fish_tank/fish_03.tres" id="4_tg4mq"]
+[ext_resource type="Texture2D" uid="uid://bvt5yf7iexef1" path="res://scenes/fish_tank/fish_04.tres" id="5_qn7cp"]
+[ext_resource type="Texture2D" uid="uid://gs6sckt41rvx" path="res://scenes/fish_tank/fish_05.tres" id="6_l7ojs"]
+[ext_resource type="Texture2D" uid="uid://dxp8wck6q56a1" path="res://scenes/fish_tank/spritesheet.png" id="8_s7a0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27juo"]
+atlas = ExtResource("8_s7a0l")
+region = Rect2(128, 1096, 24, 24)
+
+[sub_resource type="Gradient" id="Gradient_1ixth"]
+offsets = PackedFloat32Array(0, 0.779841, 0.996021)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amxtw"]
+atlas = ExtResource("8_s7a0l")
+region = Rect2(641, 348, 113, 64)
+
+[node name="Fish" type="Node2D"]
+script = ExtResource("1_w7ltl")
+noise = ExtResource("2_40wdq")
+oscilation_speed = 100.0
+textures = Array[Texture]([ExtResource("2_ifurv"), ExtResource("3_w0atg"), ExtResource("4_tg4mq"), ExtResource("5_qn7cp"), ExtResource("6_l7ojs")])
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="BublesParticles" type="CPUParticles2D" parent="Body"]
+position = Vector2(48, -5)
+amount = 5
+lifetime = 2.0
+randomness = 0.19
+texture = SubResource("AtlasTexture_27juo")
+emission_shape = 1
+emission_sphere_radius = 22.43
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_1ixth")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+texture = SubResource("AtlasTexture_amxtw")

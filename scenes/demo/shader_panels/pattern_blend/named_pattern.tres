@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://1syaqlojejru"]
+
+[ext_resource type="Script" path="res://scenes/demo/shader_panels/pattern_blend/named_pattern.gd" id="1_2ao1l"]
+
+[resource]
+script = ExtResource("1_2ao1l")
+name = ""

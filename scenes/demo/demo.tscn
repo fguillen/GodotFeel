@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=3 uid="uid://ckyvkf6fjmg0h"]
+
+[ext_resource type="PackedScene" uid="uid://dg8gw41ecpqtf" path="res://scenes/fish_tank/fish_tank.tscn" id="1_6jecs"]
+[ext_resource type="Script" path="res://scenes/demo/demo.gd" id="1_nyf7l"]
+[ext_resource type="Script" path="res://scenes/demo/shader_panel_named.gd" id="2_7u4l8"]
+[ext_resource type="Texture2D" uid="uid://cdv3h41h3ity0" path="res://scenes/demo/shader_panels/pattern_blend/pattern_blend_icon.png" id="2_s1wny"]
+[ext_resource type="PackedScene" uid="uid://cudha5cgm31am" path="res://scenes/demo/shader_panels/pattern_blend/pattern_blend_shader_panel.tscn" id="2_vb66p"]
+[ext_resource type="PackedScene" uid="uid://cdry63cjs4vjd" path="res://scenes/demo/shader_panels/pixelate/pixelate_sadher_panel.tscn" id="4_33vtw"]
+[ext_resource type="Texture2D" uid="uid://dlqg6tyfyqq7j" path="res://scenes/demo/shader_panels/pixelate/pixelate_icon.png" id="5_2giu0"]
+[ext_resource type="PackedScene" uid="uid://m242o2508pnw" path="res://scenes/demo/shader_panels/dot_matrix/dot_matrix_shader_panel.tscn" id="5_t27av"]
+[ext_resource type="PackedScene" uid="uid://dgx66mjs2guud" path="res://scenes/demo/shader_panels/diamond_matrix/diamond_matrix_shader_panel.tscn" id="6_4b5oc"]
+[ext_resource type="Texture2D" uid="uid://88df7rhxwfql" path="res://scenes/demo/shader_panels/dot_matrix/dot_matrix_icon.png" id="7_l0fcq"]
+[ext_resource type="Texture2D" uid="uid://b4mbko63mvxqf" path="res://scenes/demo/shader_panels/diamond_matrix/diamond_matrix_icon.png" id="8_pdj0g"]
+
+[sub_resource type="Resource" id="Resource_cviry"]
+script = ExtResource("2_7u4l8")
+icon = ExtResource("2_s1wny")
+name = "Pattern Blend"
+shader_panel = ExtResource("2_vb66p")
+
+[sub_resource type="Resource" id="Resource_hyb13"]
+script = ExtResource("2_7u4l8")
+icon = ExtResource("5_2giu0")
+name = "Pixelate"
+shader_panel = ExtResource("4_33vtw")
+
+[sub_resource type="Resource" id="Resource_gc1l4"]
+script = ExtResource("2_7u4l8")
+icon = ExtResource("7_l0fcq")
+name = "Dot Matrix"
+shader_panel = ExtResource("5_t27av")
+
+[sub_resource type="Resource" id="Resource_455qv"]
+script = ExtResource("2_7u4l8")
+icon = ExtResource("8_pdj0g")
+name = "Diamond Matrix"
+shader_panel = ExtResource("6_4b5oc")
+
+[node name="Demo" type="Node2D"]
+script = ExtResource("1_nyf7l")
+shader_panels_named = Array[ExtResource("2_7u4l8")]([SubResource("Resource_cviry"), SubResource("Resource_hyb13"), SubResource("Resource_gc1l4"), SubResource("Resource_455qv")])
+
+[node name="FishTank" parent="." instance=ExtResource("1_6jecs")]
+
+[node name="ShaderPanels" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="UICanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -55.5
+offset_right = -38.0
+offset_bottom = 55.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="UICanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Buttons" type="VBoxContainer" parent="UICanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UICanvasLayer/PanelContainer/MarginContainer/Buttons"]
+layout_mode = 2
+text = "Shader"
+
+[node name="ShaderPanelsOptionButton" type="OptionButton" parent="UICanvasLayer/PanelContainer/MarginContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[connection signal="item_selected" from="UICanvasLayer/PanelContainer/MarginContainer/Buttons/ShaderPanelsOptionButton" to="." method="_on_shader_panels_option_button_item_selected"]

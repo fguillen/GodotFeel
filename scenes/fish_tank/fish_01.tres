@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bhxgshbg4cim0"]
+
+[ext_resource type="Texture2D" uid="uid://dxp8wck6q56a1" path="res://scenes/fish_tank/spritesheet.png" id="1_ip72x"]
+
+[resource]
+atlas = ExtResource("1_ip72x")
+region = Rect2(128, 1025, 122, 71)
