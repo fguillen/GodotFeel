@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=3 uid="uid://cudha5cgm31am"]
+
+[ext_resource type="PackedScene" uid="uid://dskjctopboxn1" path="res://demos/shaders/shader_panels/shader_panel.tscn" id="1_emecw"]
+[ext_resource type="Script" path="res://demos/shaders/shader_panels/pattern_blend/pattern_blend_shader_panel.gd" id="2_p21lb"]
+[ext_resource type="Texture2D" uid="uid://bnk7cy7onyklw" path="res://demos/shaders/shader_panels/pattern_blend/patterns/pattern_01.jpg" id="3_tiyjq"]
+[ext_resource type="Script" path="res://demos/shaders/shader_panels/pattern_blend/named_pattern.gd" id="4_5xss5"]
+[ext_resource type="Texture2D" uid="uid://dn87ile7pk0ul" path="res://demos/shaders/shader_panels/pattern_blend/patterns/pattern_02.jpg" id="5_7sjmq"]
+[ext_resource type="Texture2D" uid="uid://ci6pbyqrrub66" path="res://demos/shaders/shader_panels/pattern_blend/patterns/pattern_03.jpg" id="6_rxsr2"]
+[ext_resource type="Shader" path="res://tool_box/shaders/pattern_blend_portprocessing.gdshader" id="7_ykxq0"]
+
+[sub_resource type="Resource" id="Resource_37qac"]
+script = ExtResource("4_5xss5")
+name = "Pattern 01"
+pattern = ExtResource("3_tiyjq")
+
+[sub_resource type="Resource" id="Resource_pbmmh"]
+script = ExtResource("4_5xss5")
+name = "Pattern 02"
+pattern = ExtResource("5_7sjmq")
+
+[sub_resource type="Resource" id="Resource_e4ow8"]
+script = ExtResource("4_5xss5")
+name = "Pattern 03"
+pattern = ExtResource("6_rxsr2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w65iq"]
+shader = ExtResource("7_ykxq0")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/pattern_scale = 1.1
+shader_parameter/pattern_offset = Vector2(0, 0)
+shader_parameter/inverted = false
+shader_parameter/blend_mode = 1
+shader_parameter/pattern_texture = ExtResource("6_rxsr2")
+
+[node name="PatternBlendSadherPanel" instance=ExtResource("1_emecw")]
+script = ExtResource("2_p21lb")
+named_patterns = Array[ExtResource("4_5xss5")]([SubResource("Resource_37qac"), SubResource("Resource_pbmmh"), SubResource("Resource_e4ow8")])
+
+[node name="ShaderColorRect" parent="." index="0"]
+material = SubResource("ShaderMaterial_w65iq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/PanelContainer/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="Patterns" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Patterns" index="0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Pattern"
+
+[node name="PatternsSelect" type="OptionButton" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Patterns" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Alpha" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Alpha" index="0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Alpha"
+
+[node name="AlphaSlider" type="HSlider" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Alpha" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="AlphaValueLabel" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Alpha" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000"
+
+[node name="Scale" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Scale" index="0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Scale"
+
+[node name="ScaleSlider" type="HSlider" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Scale" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="ScaleValueLabel" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Scale" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000"
+
+[node name="Offset" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Offset" index="0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Offset"
+
+[node name="OffsetSlider" type="HSlider" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Offset" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="OffsetValueLabel" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Offset" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000"
+
+[node name="Invert" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer/VBoxContainer" index="4"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="InvertButton" type="CheckButton" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/Invert" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Invert"
+
+[node name="BlendMode" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer/VBoxContainer" index="5"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/BlendMode" index="0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Blend Mode"
+
+[node name="BlendModesSelect" type="OptionButton" parent="Controls/PanelContainer/MarginContainer/VBoxContainer/BlendMode" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

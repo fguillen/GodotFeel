@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dskjctopboxn1"]
+
+[ext_resource type="Script" path="res://demos/shaders/shader_panels/shader_panel.gd" id="1_yspwc"]
+[ext_resource type="Script" path="res://demos/shaders/grabbable_component.gd" id="3_3oc5x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33h3i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.218882, 0.501598, 0.563027, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hovuh"]
+size = Vector2(896, 1024)
+
+[node name="ShaderPanel" type="PanelContainer" groups=["shader_panels"]]
+offset_left = 359.0
+offset_top = 44.0
+offset_right = 1230.0
+offset_bottom = 1045.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_33h3i")
+script = ExtResource("1_yspwc")
+
+[node name="ShaderColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Controls" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="Controls"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Controls/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GrabbableComponent" type="Area2D" parent="." node_paths=PackedStringArray("node")]
+position = Vector2(6, 6)
+script = ExtResource("3_3oc5x")
+node = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbableComponent"]
+position = Vector2(427, 495)
+shape = SubResource("RectangleShape2D_hovuh")
+
+[connection signal="input_event" from="GrabbableComponent" to="GrabbableComponent" method="_on_input_event"]

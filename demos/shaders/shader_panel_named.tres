@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b8kef0cwgn5lw"]
+
+[ext_resource type="Script" path="res://demos/shaders/shader_panel_named.gd" id="1_rhasp"]
+
+[resource]
+script = ExtResource("1_rhasp")
+name = ""

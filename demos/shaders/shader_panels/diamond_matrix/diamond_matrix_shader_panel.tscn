@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgx66mjs2guud"]
+
+[ext_resource type="PackedScene" uid="uid://dskjctopboxn1" path="res://demos/shaders/shader_panels/shader_panel.tscn" id="1_smqjl"]
+[ext_resource type="Script" path="res://demos/shaders/shader_panels/dot_matrix/dot_matrix_shader_panel.gd" id="2_nk3tw"]
+[ext_resource type="Shader" path="res://tool_box/shaders/diamon_matrix_postprocessing.gdshader" id="3_pdymr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivngh"]
+shader = ExtResource("3_pdymr")
+shader_parameter/size = 15.0
+
+[node name="DiamondMatrixShaderPanel" instance=ExtResource("1_smqjl")]
+script = ExtResource("2_nk3tw")
+
+[node name="ShaderColorRect" parent="." index="0"]
+material = SubResource("ShaderMaterial_ivngh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/MarginContainer/HBoxContainer" index="0"]
+layout_mode = 2
+text = "Size"
+
+[node name="HSlider" type="HSlider" parent="Controls/PanelContainer/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 150.0
+value = 10.0
+
+[node name="ValueLabel" type="Label" parent="Controls/PanelContainer/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
