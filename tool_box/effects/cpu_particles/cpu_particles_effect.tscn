@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy1ri1s4xtpri"]
+
+[ext_resource type="Script" path="res://tool_box/effects/cpu_particles/cpu_particles_effect.gd" id="1_gqrac"]
+
+[node name="CPUParticlesEffect" type="CPUParticles2D"]
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 47.62
+initial_velocity_max = 47.62
+script = ExtResource("1_gqrac")
