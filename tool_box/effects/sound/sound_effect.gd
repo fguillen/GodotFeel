@@ -1,13 +1,20 @@
+class_name SoundEffect
+
 extends AudioStreamPlayer
 
+@export_category("Sound")
 @export var random_pitch := false
 @export var start_at_random_seek := false
 @export var loop := false
 @export var samples: Array[AudioStream]
-@export var debouce_time := 0.0
-@export var reparent_on_ready := false
+@export var debounce_time := 0.0
 @export var fade_in_time := 0.0
 @export var fade_out_time := 0.0
+
+@export_category("Replicate and autofree")
+@export var reparent_on_perform := false
+@export var replicate_on_perform := false
+@export var after_perform_free_delay_time := -1
 
 @onready var _timer = $Timer
 
@@ -19,9 +26,6 @@ var _is_ready := false
 
 func _ready():
 	tree_exiting.connect(_exit)
-	
-	if reparent_on_ready:
-		reparent.call_deferred(get_tree().current_scene, true)
 
 	_original_valume = volume_db
 	_is_ready = true
@@ -37,9 +41,30 @@ func perform():
 	if _is_in_debouncing_time:
 		return
 		
-	if debouce_time > 0:
+	if debounce_time > 0:
 		_is_in_debouncing_time = true
-		_timer.start(debouce_time)
+		_timer.start(debounce_time)
+		
+	if replicate_on_perform:
+		var replica = _replicate()
+		replica._inner_perform()
+	else:
+		_inner_perform()
+
+
+func finish():
+	if fade_out_time > 0.0:
+		print("XXX: fade_out_time: ", fade_out_time)
+		await _fade_out()
+	
+	print("XXX stop")
+	stop()
+	
+	
+# -- 17 private methods
+func _inner_perform():
+	if reparent_on_perform:
+		reparent(get_tree().current_scene, true)
 		
 	if fade_in_time > 0.0:
 		_fade_in()
@@ -59,14 +84,18 @@ func perform():
 	else:
 		if finished.is_connected(perform):
 			finished.disconnect(perform)
-
-
-func finish():
-	if fade_out_time > 0.0:
-		await _fade_out()
+			
+	if after_perform_free_delay_time > 0:
+		await get_tree().create_timer(after_perform_free_delay_time).timeout
+		queue_free()
 		
-	stop()
 
+func _replicate() -> AudioStreamPlayer:
+	var instance = self.duplicate()
+	get_tree().current_scene.add_child(instance)
+
+	return instance
+	
 
 func _fade_in():
 	if _tween_fade and _tween_fade.is_running():

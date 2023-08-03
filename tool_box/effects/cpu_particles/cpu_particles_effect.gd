@@ -28,20 +28,23 @@ extends CPUParticles2D
 func perform():
 	if replicate_on_perform:
 		var replica = _replicate()
-		replica.replicate_on_perform = false
-		replica.perform()
+		replica._inner_perform()
 	else:
-		if reparent_on_perform:
-			reparent(get_tree().current_scene, true)
-			
-		emitting = true
-		
-		if after_perform_free_delay_time > 0:
-			await get_tree().create_timer(after_perform_free_delay_time).timeout
-			queue_free()
+		_inner_perform()
 	
 	
 # -- 17 private methods
+func _inner_perform():
+	if reparent_on_perform:
+		reparent(get_tree().current_scene, true)
+		
+	emitting = true
+	
+	if after_perform_free_delay_time > 0:
+		await get_tree().create_timer(after_perform_free_delay_time).timeout
+		queue_free()
+		
+
 func _replicate() -> CPUParticles2D:
 	var instance = self.duplicate()
 	get_tree().current_scene.add_child(instance)

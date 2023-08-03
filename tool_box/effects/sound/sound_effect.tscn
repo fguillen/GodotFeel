@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c817v2wc4m8jh"]
 
-[ext_resource type="Script" path="res://tool_box/effects/sound_effect.gd" id="1_hpybb"]
+[ext_resource type="Script" path="res://tool_box/effects/sound/sound_effect.gd" id="1_hpybb"]
 
 [node name="SoundEffect" type="AudioStreamPlayer"]
 script = ExtResource("1_hpybb")

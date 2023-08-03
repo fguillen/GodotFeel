@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://cj6obyeok640b"]
+
+[ext_resource type="PackedScene" uid="uid://c817v2wc4m8jh" path="res://tool_box/effects/sound/sound_effect.tscn" id="1_7ellv"]
+[ext_resource type="Script" path="res://demos/effects/sound/music_button.gd" id="1_7qehv"]
+[ext_resource type="AudioStream" uid="uid://daq27tvepq1gg" path="res://assets/confirmation_001.ogg" id="2_xein3"]
+[ext_resource type="AudioStream" uid="uid://dv4ohaabl30d0" path="res://assets/pluck_001.ogg" id="3_fh1ws"]
+[ext_resource type="AudioStream" uid="uid://bj0n1tfjip4hu" path="res://assets/question_001.ogg" id="4_7p3r8"]
+[ext_resource type="AudioStream" uid="uid://cg5eshk6wimpj" path="res://assets/select_006.ogg" id="5_ilo6q"]
+[ext_resource type="AudioStream" uid="uid://c20nhja6e24ck" path="res://assets/switch_001.ogg" id="6_huota"]
+[ext_resource type="AudioStream" uid="uid://dmfdx5a50qlbv" path="res://assets/vintage-elecro-pop-loop.ogg" id="8_bs1tj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8onri"]
+
+[node name="SoundEffectDemo" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.752941, 0.756863, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8onri")
+
+[node name="SoundButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound"
+
+[node name="SoundRandomPitchButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Random Pitch"
+
+[node name="SoundMultipleSamplesButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Multiple Samples
+"
+
+[node name="MusicButton" type="CheckButton" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+alignment = 1
+script = ExtResource("1_7qehv")
+
+[node name="Effects" type="Node2D" parent="."]
+position = Vector2(482, 257.5)
+
+[node name="SoundEffect" parent="Effects" instance=ExtResource("1_7ellv")]
+stream = ExtResource("2_xein3")
+
+[node name="RandomPitchSoundEffect" parent="Effects" instance=ExtResource("1_7ellv")]
+stream = ExtResource("2_xein3")
+random_pitch = true
+
+[node name="MultipleSamplesSoundEffect" parent="Effects" instance=ExtResource("1_7ellv")]
+stream = ExtResource("2_xein3")
+samples = Array[AudioStream]([ExtResource("3_fh1ws"), ExtResource("4_7p3r8"), ExtResource("5_ilo6q"), ExtResource("6_huota")])
+
+[node name="MusicSoundEffect" parent="Effects" instance=ExtResource("1_7ellv")]
+stream = ExtResource("8_bs1tj")
+fade_in_time = 1.0
+fade_out_time = 3.0
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/SoundButton" to="Effects/SoundEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/SoundRandomPitchButton" to="Effects/RandomPitchSoundEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/SoundMultipleSamplesButton" to="Effects/MultipleSamplesSoundEffect" method="perform"]
+[connection signal="off" from="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" to="Effects/MusicSoundEffect" method="finish"]
+[connection signal="on" from="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" to="Effects/MusicSoundEffect" method="perform"]
+[connection signal="toggled" from="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" to="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" method="_on_toggled"]
