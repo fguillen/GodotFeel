@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dinlfgaorw876" path="res://tool_box/effects/blink/blink_effect.tscn" id="2_sfp5b"]
 [ext_resource type="Shader" path="res://tool_box/effects/blink/blink_effect.gdshader" id="3_55747"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uiil4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yabcf"]
 resource_local_to_scene = true
 shader = ExtResource("3_55747")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/percent = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyf3t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhein"]
 resource_local_to_scene = true
 shader = ExtResource("3_55747")
 shader_parameter/color = Color(0.682353, 0, 0.686275, 1)
@@ -63,11 +63,11 @@ texture = ExtResource("1_k8670")
 
 [node name="BlinkEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("canvas_item") instance=ExtResource("2_sfp5b")]
 canvas_item = NodePath("../..")
-material = SubResource("ShaderMaterial_uiil4")
+material = SubResource("ShaderMaterial_yabcf")
 
 [node name="BlinkEffectPink" parent="Sprite2D/Effects" node_paths=PackedStringArray("canvas_item") instance=ExtResource("2_sfp5b")]
 canvas_item = NodePath("../..")
-material = SubResource("ShaderMaterial_xyf3t")
+material = SubResource("ShaderMaterial_uhein")
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Sprite2D/Effects/BlinkEffect" method="perform"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/ButtonPink" to="Sprite2D/Effects/BlinkEffectPink" method="perform"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgx66mjs2guud"]
+[gd_scene load_steps=6 format=3 uid="uid://dgx66mjs2guud"]
 
 [ext_resource type="PackedScene" uid="uid://dskjctopboxn1" path="res://demos/shaders/shader_panels/shader_panel.tscn" id="1_smqjl"]
 [ext_resource type="Script" path="res://demos/shaders/shader_panels/dot_matrix/dot_matrix_shader_panel.gd" id="2_nk3tw"]
 [ext_resource type="Shader" path="res://tool_box/shaders/diamon_matrix_postprocessing.gdshader" id="3_pdymr"]
+[ext_resource type="Theme" uid="uid://t4fnqfcts68g" path="res://tool_box/ui/theme.tres" id="4_kd4le"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ivngh"]
 shader = ExtResource("3_pdymr")
@@ -13,6 +14,9 @@ script = ExtResource("2_nk3tw")
 
 [node name="ShaderColorRect" parent="." index="0"]
 material = SubResource("ShaderMaterial_ivngh")
+
+[node name="PanelContainer" parent="Controls" index="0"]
+theme = ExtResource("4_kd4le")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Controls/PanelContainer/MarginContainer" index="0"]
 layout_mode = 2

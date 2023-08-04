@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://t4fnqfcts68g"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://t4fnqfcts68g"]
 
 [ext_resource type="FontFile" uid="uid://cx701b32gfg0t" path="res://tool_box/ui/LondrinaSolid-Regular.ttf" id="1_jckqb"]
 
@@ -71,36 +71,6 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3wrb"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.929412, 0.403922, 0.054902, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osoiu"]
-bg_color = Color(0.929412, 0.403922, 0.054902, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah0qv"]
-content_margin_left = 8.0
-content_margin_top = 16.0
-content_margin_right = 8.0
-content_margin_bottom = 16.0
-bg_color = Color(0.2, 0.203922, 0.203922, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hi02"]
-bg_color = Color(0.929412, 0.403922, 0.054902, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flsf7"]
 bg_color = Color(0.2, 0.203922, 0.203922, 1)
 border_width_left = 8
@@ -118,15 +88,8 @@ CheckButton/styles/hover = SubResource("StyleBoxFlat_nn7pc")
 CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_sacwg")
 CheckButton/styles/normal = SubResource("StyleBoxFlat_4ucai")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_arbfk")
-HSlider/icons/grabber = null
-HSlider/icons/grabber_disabled = null
-HSlider/icons/grabber_highlight = null
-HSlider/styles/grabber_area = SubResource("StyleBoxFlat_o3wrb")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_osoiu")
-HSlider/styles/slider = SubResource("StyleBoxFlat_ah0qv")
 Label/constants/line_spacing = 0
 Label/font_sizes/font_size = 30
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_0hi02")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_flsf7")
 ProgressBar/styles/fill = null
 TextEdit/colors/background_color = Color(1, 1, 0.901961, 1)
