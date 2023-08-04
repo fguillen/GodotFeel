@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c20nhja6e24ck" path="res://demos/effects/_assets/switch_001.ogg" id="6_huota"]
 [ext_resource type="AudioStream" uid="uid://dmfdx5a50qlbv" path="res://demos/effects/_assets/vintage-elecro-pop-loop.ogg" id="8_bs1tj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8onri"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0ykx"]
 
 [node name="SoundEffectDemo" type="Node2D"]
 
@@ -24,41 +24,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.752941, 0.756863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -150.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sound"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_8onri")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w0ykx")
 
-[node name="SoundButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="SoundButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sound"
 
-[node name="SoundRandomPitchButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="SoundRandomPitchButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Random Pitch"
 
-[node name="SoundMultipleSamplesButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="SoundMultipleSamplesButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Multiple Samples
 "
 
-[node name="MusicButton" type="CheckButton" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="MusicButton" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music"
 alignment = 1
@@ -83,9 +89,9 @@ stream = ExtResource("8_bs1tj")
 fade_in_time = 1.0
 fade_out_time = 3.0
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/SoundButton" to="Effects/SoundEffect" method="perform"]
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/SoundRandomPitchButton" to="Effects/RandomPitchSoundEffect" method="perform"]
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/SoundMultipleSamplesButton" to="Effects/MultipleSamplesSoundEffect" method="perform"]
-[connection signal="off" from="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" to="Effects/MusicSoundEffect" method="finish"]
-[connection signal="on" from="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" to="Effects/MusicSoundEffect" method="perform"]
-[connection signal="toggled" from="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" to="CanvasLayer/CenterContainer/VBoxContainer/MusicButton" method="_on_toggled"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/SoundButton" to="Effects/SoundEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/SoundRandomPitchButton" to="Effects/RandomPitchSoundEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/SoundMultipleSamplesButton" to="Effects/MultipleSamplesSoundEffect" method="perform"]
+[connection signal="off" from="CanvasLayer/MarginContainer/VBoxContainer/MusicButton" to="Effects/MusicSoundEffect" method="finish"]
+[connection signal="on" from="CanvasLayer/MarginContainer/VBoxContainer/MusicButton" to="Effects/MusicSoundEffect" method="perform"]
+[connection signal="toggled" from="CanvasLayer/MarginContainer/VBoxContainer/MusicButton" to="CanvasLayer/MarginContainer/VBoxContainer/MusicButton" method="_on_toggled"]

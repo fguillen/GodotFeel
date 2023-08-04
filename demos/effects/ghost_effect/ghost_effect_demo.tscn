@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1msmq55ih1eb"]
+[gd_scene load_steps=7 format=3 uid="uid://d1msmq55ih1eb"]
 
 [ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/effects/_assets/fishTile_079.png" id="1_buuwi"]
 [ext_resource type="PackedScene" uid="uid://bvvv5mp4xovsk" path="res://tool_box/effects/ghost_effect/ghost_effect.tscn" id="2_q4635"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcsk8"]
 
 [sub_resource type="Animation" id="Animation_lnc5r"]
 length = 0.001
@@ -31,7 +33,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(304, 257), Vector2(632, 257)]
+"values": [Vector2(720, 705), Vector2(1209, 705)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c33sb"]
@@ -53,21 +55,34 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.752941, 0.756863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = -140.0
+offset_left = -150.0
+offset_right = 150.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ghost"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fcsk8")
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
@@ -88,4 +103,4 @@ libraries = {
 "": SubResource("AnimationLibrary_c33sb")
 }
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Sprite2D/Effects/GhostEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="Sprite2D/Effects/GhostEffect" method="perform"]

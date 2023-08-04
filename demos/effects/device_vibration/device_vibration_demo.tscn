@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://esptv6shxj5a"]
+[gd_scene load_steps=3 format=3 uid="uid://esptv6shxj5a"]
 
 [ext_resource type="PackedScene" uid="uid://b77wrtegsi335" path="res://tool_box/effects/device_vibration/device_vibration_effect.tscn" id="1_h1tx2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d31p6"]
 
 [node name="DeviceVibrationDemo" type="Node2D"]
 
@@ -15,21 +17,34 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.752941, 0.756863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = -140.0
+offset_left = -150.0
+offset_right = 150.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Device Vibration"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_d31p6")
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
@@ -40,4 +55,4 @@ position = Vector2(472, 257)
 
 [node name="DeviceVibrationEffect" parent="Effects" instance=ExtResource("1_h1tx2")]
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Effects/DeviceVibrationEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="Effects/DeviceVibrationEffect" method="perform"]

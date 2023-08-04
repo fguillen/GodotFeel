@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccjphbuo0wwr5"]
+[gd_scene load_steps=7 format=3 uid="uid://ccjphbuo0wwr5"]
 
 [ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/effects/_assets/fishTile_079.png" id="1_k8670"]
 [ext_resource type="PackedScene" uid="uid://dinlfgaorw876" path="res://tool_box/effects/blink/blink_effect.tscn" id="2_sfp5b"]
 [ext_resource type="Shader" path="res://tool_box/effects/blink/blink_effect.gdshader" id="3_55747"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yabcf"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07dlr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fk2mg"]
 resource_local_to_scene = true
 shader = ExtResource("3_55747")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/percent = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhein"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ji0o"]
 resource_local_to_scene = true
 shader = ExtResource("3_55747")
 shader_parameter/color = Color(0.682353, 0, 0.686275, 1)
@@ -29,45 +31,58 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.752941, 0.756863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = -140.0
+offset_left = -150.0
+offset_right = 150.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Blink"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_07dlr")
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "Blink"
 
-[node name="ButtonPink" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="ButtonPink" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "Blink Pink"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(472, 257)
+position = Vector2(942, 626)
 texture = ExtResource("1_k8670")
 
 [node name="Effects" type="Node2D" parent="Sprite2D"]
 
 [node name="BlinkEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("canvas_item") instance=ExtResource("2_sfp5b")]
 canvas_item = NodePath("../..")
-material = SubResource("ShaderMaterial_yabcf")
+material = SubResource("ShaderMaterial_fk2mg")
 
 [node name="BlinkEffectPink" parent="Sprite2D/Effects" node_paths=PackedStringArray("canvas_item") instance=ExtResource("2_sfp5b")]
 canvas_item = NodePath("../..")
-material = SubResource("ShaderMaterial_uhein")
+material = SubResource("ShaderMaterial_6ji0o")
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Sprite2D/Effects/BlinkEffect" method="perform"]
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/ButtonPink" to="Sprite2D/Effects/BlinkEffectPink" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="Sprite2D/Effects/BlinkEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/ButtonPink" to="Sprite2D/Effects/BlinkEffectPink" method="perform"]

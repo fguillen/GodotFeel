@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://newsoi54q2bv"]
+[gd_scene load_steps=6 format=3 uid="uid://newsoi54q2bv"]
 
 [ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/effects/_assets/fishTile_079.png" id="1_11jvg"]
 [ext_resource type="PackedScene" uid="uid://dl28skw65bhlw" path="res://tool_box/effects/deform/deform_effect.tscn" id="2_comcc"]
 [ext_resource type="Shader" path="res://tool_box/effects/deform/deform_effect.gdshader" id="3_y4rqa"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5uga"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86ghw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ahys"]
 resource_local_to_scene = true
 shader = ExtResource("3_y4rqa")
 shader_parameter/x_factor = 2.0
@@ -23,40 +25,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.752941, 0.756863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = -140.0
+offset_left = -150.0
+offset_right = 150.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Deform"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_86ghw")
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "Deform"
 
-[node name="ButtonPink" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
-text = "Blink Pink"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(472, 257)
+position = Vector2(954, 673)
 texture = ExtResource("1_11jvg")
 
 [node name="Effects" type="Node2D" parent="Sprite2D"]
 
 [node name="DeformEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("target") instance=ExtResource("2_comcc")]
 target = NodePath("../..")
-shader_material = SubResource("ShaderMaterial_k5uga")
+shader_material = SubResource("ShaderMaterial_3ahys")
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="Sprite2D/Effects/DeformEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="Sprite2D/Effects/DeformEffect" method="perform"]

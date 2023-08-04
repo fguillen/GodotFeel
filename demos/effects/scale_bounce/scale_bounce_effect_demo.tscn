@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://m5c83orfnqcb"]
+[gd_scene load_steps=7 format=3 uid="uid://m5c83orfnqcb"]
 
 [ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/effects/_assets/fishTile_079.png" id="1_rr5vk"]
 [ext_resource type="ButtonGroup" uid="uid://c02qqekukc5pm" path="res://demos/effects/scale_bounce/button_group.tres" id="1_vfoxv"]
 [ext_resource type="PackedScene" uid="uid://bc5o4k20rp7ac" path="res://tool_box/effects/scale_bounce/scale_bounce_effect.tscn" id="3_dg2bo"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8onri"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6io5u"]
 
-[sub_resource type="Curve" id="Curve_lal1a"]
+[sub_resource type="Curve" id="Curve_v04o0"]
+resource_local_to_scene = true
+max_value = 1.2
+_data = [Vector2(0, 0), 0.0, 5.98055, 0, 0, Vector2(0.38, 1.2), -1.7978, -1.7978, 0, 0, Vector2(0.52137, 0.907786), 0.668702, 0.668702, 0, 0, Vector2(0.741644, 1.14962), -1.39961, -1.39961, 0, 0, Vector2(1, 1), 0.0291636, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_lenfs"]
 resource_local_to_scene = true
 max_value = 1.2
 _data = [Vector2(0, 0), 0.0, 5.98055, 0, 0, Vector2(0.38, 1.2), -1.7978, -1.7978, 0, 0, Vector2(0.52137, 0.907786), 0.668702, 0.668702, 0, 0, Vector2(0.741644, 1.14962), -1.39961, -1.39961, 0, 0, Vector2(1, 1), 0.0291636, 0.0, 0, 0]
@@ -25,51 +31,57 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.752941, 0.756863, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -150.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Scale Bounce"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_8onri")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6io5u")
 
-[node name="BigCheckButton" type="CheckButton" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="BigCheckButton" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_vfoxv")
 text = "Big"
 
-[node name="SmallCheckButton" type="CheckButton" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="SmallCheckButton" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("1_vfoxv")
 text = "Small"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(482, 257.5)
+position = Vector2(958, 640)
 texture = ExtResource("1_rr5vk")
 
 [node name="Effects" type="Node2D" parent="Sprite2D"]
 
 [node name="BigScaleElasticEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("target") instance=ExtResource("3_dg2bo")]
 target = NodePath("../..")
-curve = SubResource("Curve_lal1a")
+curve = SubResource("Curve_v04o0")
 
 [node name="SmallScaleElasticEffect" parent="Sprite2D/Effects" node_paths=PackedStringArray("target") instance=ExtResource("3_dg2bo")]
 target = NodePath("../..")
 target_scale = Vector2(0.8, 0.8)
-curve = SubResource("Curve_lal1a")
+curve = SubResource("Curve_lenfs")
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/BigCheckButton" to="Sprite2D/Effects/BigScaleElasticEffect" method="perform"]
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/SmallCheckButton" to="Sprite2D/Effects/SmallScaleElasticEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/BigCheckButton" to="Sprite2D/Effects/BigScaleElasticEffect" method="perform"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/SmallCheckButton" to="Sprite2D/Effects/SmallScaleElasticEffect" method="perform"]
