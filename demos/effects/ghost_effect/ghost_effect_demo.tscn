@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1msmq55ih1eb"]
 
-[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/assets/fishTile_079.png" id="1_buuwi"]
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/effects/_assets/fishTile_079.png" id="1_buuwi"]
 [ext_resource type="PackedScene" uid="uid://bvvv5mp4xovsk" path="res://tool_box/effects/ghost_effect/ghost_effect.tscn" id="2_q4635"]
 
 [sub_resource type="Animation" id="Animation_lnc5r"]

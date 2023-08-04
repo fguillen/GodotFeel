@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://stq3bapmrx6l"
-path="res://.godot/imported/fishTile_101.png-79134e1a83fe6d88f24163dd70ad5ad0.ctex"
+uid="uid://dkvy1tygivlka"
+path="res://.godot/imported/fishTile_079.png-6b44519afc918b61a2d3f45172aac8e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demos/assets/fishTile_101.png"
-dest_files=["res://.godot/imported/fishTile_101.png-79134e1a83fe6d88f24163dd70ad5ad0.ctex"]
+source_file="res://demos/effects/_assets/fishTile_079.png"
+dest_files=["res://.godot/imported/fishTile_079.png-6b44519afc918b61a2d3f45172aac8e9.ctex"]
 
 [params]
 

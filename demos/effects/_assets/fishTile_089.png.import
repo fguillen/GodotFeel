@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2tcm4kdkf3x6"
-path="res://.godot/imported/fishTile_089.png-5771bf0aed2fafd97dced8f5d72f344c.ctex"
+path="res://.godot/imported/fishTile_089.png-b78e4d5e14c94d65bd6890648be9fd27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demos/assets/fishTile_089.png"
-dest_files=["res://.godot/imported/fishTile_089.png-5771bf0aed2fafd97dced8f5d72f344c.ctex"]
+source_file="res://demos/effects/_assets/fishTile_089.png"
+dest_files=["res://.godot/imported/fishTile_089.png-b78e4d5e14c94d65bd6890648be9fd27.ctex"]
 
 [params]
 

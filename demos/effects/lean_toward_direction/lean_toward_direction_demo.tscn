@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctq710s2aarye"]
 
-[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/assets/fishTile_079.png" id="1_abu5u"]
+[ext_resource type="Texture2D" uid="uid://dkvy1tygivlka" path="res://demos/effects/_assets/fishTile_079.png" id="1_abu5u"]
 [ext_resource type="Script" path="res://demos/effects/lean_toward_direction/sprite_2d.gd" id="2_2346k"]
 [ext_resource type="PackedScene" uid="uid://w331wjf5af75" path="res://tool_box/effects/lean_toward_direction/lean_toward_direction_effect.tscn" id="3_4gena"]
 
